@@ -1,4 +1,8 @@
 Cs441Proj4::Application.routes.draw do
+  resources :questions
+
+  resources :surveys
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
