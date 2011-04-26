@@ -1,8 +1,9 @@
-<h1>Listing surveys</h1>
+<h1 align='center'>Todd and Phil's Survey Engine</h1>
+<h2 align='center'>CS 441  Spring 2011</h2>
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Survey</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,9 +12,6 @@
 <% @surveys.each do |survey| %>
   <tr>
     <td><%= survey.name %></td>
-    <td><%= link_to 'Show', survey %></td>
-    <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
-    <td><%= link_to 'Destroy', survey, :confirm => 'Are you sure?', :method => :delete %></td>
 	<td><%= link_to 'Take', take_url(:id => survey.id) %></td>
 	<td><%= link_to 'View Results', result_url(:id => survey.id) %></td>
   </tr>
@@ -22,4 +20,4 @@
 
 <br />
 
-<%= link_to 'New Survey', new_survey_path %>
+<%= button_to 'Survey Administration', '/admin' %>

@@ -1,5 +1,14 @@
 class SurveysController < ApplicationController
   
+  def admin
+    @surveys = Survey.all
+	
+	respond_to do |format|
+	  format.html # admin.html.erb
+	  format.xml { render :xml => @surveys }
+	end
+  end
+  
   def take
 	@survey = Survey.find(params[:id])
 	
