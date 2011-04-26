@@ -9,6 +9,15 @@ class SurveysController < ApplicationController
 	end
   end
   
+  def result
+    @survey = Survey.find(params[:id])
+	
+	respond_to do |format|
+	  format.html # result.html.erb
+	  format.xml { render :xml => @surveys }
+	end
+  end
+  
   # GET /surveys
   # GET /surveys.xml
   def index
