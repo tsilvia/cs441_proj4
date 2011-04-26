@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @survey.name %>
+</p>
+
+<% @theQuestions.each do |quest| %>
+  <tr>
+    <td><%= quest.content %></td><br>
+  </tr>
+<% end %>
+
+<%= link_to 'New Question', {:controller => "questions", :action => "new", :id => @survey.id} %>
+<%= link_to 'Edit', edit_survey_path(@survey) %> |
+<%= link_to 'Back', surveys_path %>

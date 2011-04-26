@@ -3,6 +3,7 @@ Cs441Proj4::Application.routes.draw do
 
   resources :surveys
 
+  match "/surveys/:id/take" => "surveys#take"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
