@@ -3,7 +3,11 @@ Cs441Proj4::Application.routes.draw do
 
   resources :surveys
 
-  match "/surveys/:id/take" => "surveys#take"
+  match 'surveys/:id/take' => 'surveys#take', :as => :take
+  #match take_surveys_path(:id) => "surveys#take"
+  #match "/surveys/:id/take" => "surveys#take"
+  #GET    /surveys/:id/take/                        {:action=>"take", :controller=>"surveys"}
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

@@ -14,6 +14,7 @@
     <td><%= link_to 'Show', survey %></td>
     <td><%= link_to 'Edit', edit_survey_path(survey) %></td>
     <td><%= link_to 'Destroy', survey, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= link_to 'Take', take_url(:id => survey.id) %></td>
   </tr>
 <% end %>
 </table>
