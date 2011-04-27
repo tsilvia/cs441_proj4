@@ -58,6 +58,11 @@ class SurveysController < ApplicationController
   # GET /surveys.xml
   def index
     @surveys = Survey.all
+	if @surveys.empty?
+	  @emptyMessage = "No Surveys Found"
+	else
+	  @emptyMessage = ""
+	end
 
     respond_to do |format|
       format.html # index.html.erb
@@ -100,7 +105,7 @@ class SurveysController < ApplicationController
 
     respond_to do |format|
       if @survey.save
-        format.html { redirect_to(@survey, :notice => 'Survey was successfully created.') }
+        format.html { redirect_to('/admin', :notice => 'Survey was successfully created.') }
         format.xml  { render :xml => @survey, :status => :created, :location => @survey }
       else
         format.html { render :action => "new" }

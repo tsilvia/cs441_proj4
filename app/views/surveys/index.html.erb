@@ -3,12 +3,15 @@
 
 <table>
   <tr>
-    <th>Survey</th>
+    <th><font size="5">Surveys:</font></th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
+  <tr>
+    <td><%= @emptyMessage %></td>
+  </tr>
 <% @surveys.each do |survey| %>
   <tr>
     <td><%= survey.name %></td>
