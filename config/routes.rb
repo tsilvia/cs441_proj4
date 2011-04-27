@@ -5,6 +5,7 @@ Cs441Proj4::Application.routes.draw do
 
   resources :surveys
 
+  match 'surveys/new' => 'surveys#new'
   match 'surveys/:id/take' => 'surveys#take', :as => :take
   match 'surveys/:id/result' => 'surveys#result', :as => :result
   match '/admin', :to => 'surveys#admin'
