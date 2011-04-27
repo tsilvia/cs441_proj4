@@ -38,9 +38,15 @@ class SurveysController < ApplicationController
 		@theAnswers << theQ.id
 	end
 	
+	@theAnswers.each do |anAns|
+		@anAnswer = Answer.new(:value => params[:"#{anAns}"], :question_id => anAns)
+		@anAnswer.save
+	end
 	#@firstAnswer = params[:"4"]
 	#@secondAnswer = params[:"5"]
 	#@thirdAnswer = params[:"6"]
+	
+	@AllAnswers = Answer.all
 	
     respond_to do |format|
 	  format.html # stored.html.erb
