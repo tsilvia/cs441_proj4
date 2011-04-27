@@ -1,0 +1,21 @@
+<h1 align='center'>Survey Administration</h1>
+
+<%= button_to 'Create a new Survey', '/surveys/new' %>
+
+<br><br>
+
+<table>
+  <tr>
+    <td align='center'><b><u>Survey</b></u></td>
+  </tr>
+  <% @surveys.each do |survey| %>
+    <tr>
+      <td><%= survey.name %></td>
+	  <td><%= link_to 'Modify', edit_survey_path(survey) %></td>
+	  <td><%= link_to 'Delete', survey, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<br><br>
+<%= link_to 'Home', '/' %>

@@ -1,0 +1,34 @@
+<h1>TAKING A FREAKING SURVEY</h1>
+
+<p>
+	<b>Survey:</b>
+	<%= @survey.name %>
+</p>
+<%= form_tag(:controller => "surveys", :action => "stored", :method => "get") %>
+<%= hidden_field_tag(:theSurvey, @survey.id) %>
+<table>
+  <tr>
+    <td align='center'></td>
+	<td align='center'><b>1</b></td>
+	<td align='center'><b>2</b></td>
+	<td align='center'><b>3</b></td>
+	<td align='center'><b>4</b></td>
+	<td align='center'><b>5</b></td>
+  </tr>
+  
+  
+    <% @survey.questions.each do |theQuest| %>
+      <tr>
+        <td><%= theQuest.content %></td>
+		<td><input id="<%=theQuest.id%>_1" name="<%= theQuest.id %>" type="radio" value="1" /></td>
+		<td><input id="<%=theQuest.id%>_2" name="<%= theQuest.id %>" type="radio" value="2" /></td>
+		<td><input id="<%=theQuest.id%>_3" name="<%= theQuest.id %>" type="radio" value="3" /></td>
+		<td><input id="<%=theQuest.id%>_4" name="<%= theQuest.id %>" type="radio" value="4" /></td>
+		<td><input id="<%=theQuest.id%>_5" name="<%= theQuest.id %>" type="radio" value="5" /></td>
+      </tr>
+    <% end %>
+	<tr>
+		<td><%= submit_tag 'Submit' %></td>
+	</tr>
+
+</table>
