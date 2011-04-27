@@ -9,6 +9,7 @@ Cs441Proj4::Application.routes.draw do
   match 'surveys/:id/result' => 'surveys#result', :as => :result
   match '/admin', :to => 'surveys#admin'
   match '/', :to => 'surveys#index'
+  match '/stored', :to => 'surveys#stored'
 
   root :to => "surveys#index"
   

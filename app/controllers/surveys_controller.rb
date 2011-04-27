@@ -27,6 +27,27 @@ class SurveysController < ApplicationController
 	end
   end
   
+  def stored
+    @surveys = Survey.all
+	
+	@theSurveyId = params[:theSurvey]
+	@theQuestions = Survey.find_by_id(@theSurveyId).questions
+	@theAnswers = Array.new
+	
+	@theQuestions.each do |theQ|
+		@theAnswers << theQ.id
+	end
+	
+	#@firstAnswer = params[:"4"]
+	#@secondAnswer = params[:"5"]
+	#@thirdAnswer = params[:"6"]
+	
+    respond_to do |format|
+	  format.html # stored.html.erb
+	  format.xml { render :xml => @surveys }
+	end
+  end
+  
   # GET /surveys
   # GET /surveys.xml
   def index
